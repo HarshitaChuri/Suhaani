@@ -124,9 +124,3 @@ directly against the training data. This matches `CYCLE_REGULAR_CODE` and
 `CYCLE_IRREGULAR_CODE` in `ml-service/main.py`'s `featurize()` section, no
 further changes needed there.
 
-**Note on your full 38-feature model** (the 96.15% XGBoost one, using
-ultrasound + blood test data): that's a separate model, not currently wired
-into this app. It would need its own endpoint and its own form asking for
-values like AMH, FSH/LH, and follicle counts — data a user can't supply
-without already having had those tests done. The 18-feature screening model
-above is the one meant for a home/self-screening flow.
