@@ -38,7 +38,12 @@ export default function Dashboard() {
         </Card>
 
         <Card title="Cycle tracking">
-          <p style={{ color: "var(--color-text-muted)" }}>Coming in Phase 3 — log your cycle and symptoms here.</p>
+          <p style={{ color: "var(--color-text-muted)", marginBottom: 16 }}>
+            Log periods and symptoms to see patterns and get predictions.
+          </p>
+          <Link to="/cycles" style={{ color: "var(--color-primary)", fontWeight: 500 }}>
+            Open tracker →
+          </Link>
         </Card>
 
         <Card title="Ask the chatbot">

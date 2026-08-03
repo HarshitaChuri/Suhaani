@@ -18,6 +18,7 @@ export default function Navbar() {
         {user ? (
           <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
             <Link to="/dashboard">Dashboard</Link>
+            <Link to="/cycles">Cycles</Link>
             <Link to="/screening">Screening</Link>
             <button
               onClick={() => { logout(); navigate("/login"); }}

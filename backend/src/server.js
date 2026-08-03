@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import predictionRoutes from "./routes/predictionRoutes.js";
+import cycleRoutes from "./routes/cycleRoutes.js";
 
 dotenv.config();
 
@@ -23,7 +24,7 @@ app.get("/api/health", (req, res) => {
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/predictions", predictionRoutes);
-// Future: app.use("/api/cycles", cycleRoutes);
+app.use("/api/cycles", cycleRoutes);
 // Future: app.use("/api/community", communityRoutes);
 // Future: app.use("/api/appointments", appointmentRoutes);
 // Future: app.use("/api/chatbot", chatbotRoutes);

@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Screening from "./pages/Screening";
+import CycleTracker from "./pages/CycleTracker";
 
 export default function App() {
   return (
@@ -30,6 +31,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Screening />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cycles"
+            element={
+              <ProtectedRoute>
+                <CycleTracker />
               </ProtectedRoute>
             }
           />
