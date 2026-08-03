@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Env files
+.env
+!.env.example
+
+# Build output
+dist/
+build/
+
+# ML model files (too large / private for git — share separately or use Git LFS)
+#ml-service/models/*.joblib
+#ml-service/models/*.pkl
+
+# OS
+.DS_Store
+
+# Logs
+*.log
