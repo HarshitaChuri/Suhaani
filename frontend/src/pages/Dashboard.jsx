@@ -16,15 +16,22 @@ export default function Dashboard() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
         <Card title="Risk screening">
           {assessment?.riskLevel ? (
-            <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-              <CycleRing value={assessment.probability} colorVar={riskColor[assessment.riskLevel]} size={100} />
-              <div>
-                <p style={{ textTransform: "capitalize", fontWeight: 600 }}>{assessment.riskLevel} risk</p>
-                <p style={{ fontSize: 13, color: "var(--color-text-muted)" }}>
-                  Last checked {new Date(assessment.assessedAt).toLocaleDateString()}
-                </p>
+            <>
+              <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+                <CycleRing value={assessment.probability} colorVar={riskColor[assessment.riskLevel]} size={100} />
+                <div>
+                  <p style={{ textTransform: "capitalize", fontWeight: 600 }}>{assessment.riskLevel} risk</p>
+                  <p style={{ fontSize: 13, color: "var(--color-text-muted)" }}>
+                    Last checked {new Date(assessment.assessedAt).toLocaleDateString()}
+                  </p>
+                </div>
               </div>
-            </div>
+              {(assessment.riskLevel === "moderate" || assessment.riskLevel === "high") && (
+                <Link to="/consultations" style={{ display: "block", marginTop: 14, color: "var(--color-primary)", fontWeight: 500, fontSize: 13 }}>
+                  Book a consultation →
+                </Link>
+              )}
+            </>
           ) : (
             <>
               <p style={{ color: "var(--color-text-muted)", marginBottom: 16 }}>
@@ -35,6 +42,15 @@ export default function Dashboard() {
               </Link>
             </>
           )}
+        </Card>
+
+        <Card title="Doctor consultations">
+          <p style={{ color: "var(--color-text-muted)", marginBottom: 16 }}>
+            Find a PCOS specialist and book a real appointment slot.
+          </p>
+          <Link to="/consultations" style={{ color: "var(--color-primary)", fontWeight: 500 }}>
+            Browse doctors →
+          </Link>
         </Card>
 
         <Card title="Cycle tracking">

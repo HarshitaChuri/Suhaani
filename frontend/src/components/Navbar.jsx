@@ -23,6 +23,7 @@ export default function Navbar() {
             <Link to="/chat">Chat</Link>
             <Link to="/recipes">Recipes</Link>
             <Link to="/community">Community</Link>
+            <Link to="/consultations">Doctors</Link>
             <button
               onClick={() => { logout(); navigate("/login"); }}
               style={{

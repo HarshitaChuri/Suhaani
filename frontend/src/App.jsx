@@ -11,6 +11,7 @@ import CycleTracker from "./pages/CycleTracker";
 import Chatbot from "./pages/Chatbot";
 import Recipes from "./pages/Recipes";
 import Community from "./pages/Community";
+import Consultations from "./pages/Consultations";
 
 export default function App() {
   return (
@@ -66,6 +67,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Community />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/consultations"
+            element={
+              <ProtectedRoute>
+                <Consultations />
               </ProtectedRoute>
             }
           />

@@ -9,6 +9,8 @@ import cycleRoutes from "./routes/cycleRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
 import recipeRoutes from "./routes/recipeRoutes.js";
 import communityRoutes from "./routes/communityRoutes.js";
+import doctorRoutes from "./routes/doctorRoutes.js";
+import appointmentRoutes from "./routes/appointmentRoutes.js";
 
 dotenv.config();
 
@@ -31,7 +33,8 @@ app.use("/api/cycles", cycleRoutes);
 app.use("/api/chatbot", chatRoutes);
 app.use("/api/recipes", recipeRoutes);
 app.use("/api/community", communityRoutes);
-// Future: app.use("/api/appointments", appointmentRoutes);
+app.use("/api/doctors", doctorRoutes);
+app.use("/api/appointments", appointmentRoutes);
 
 const PORT = process.env.PORT || 5000;
 

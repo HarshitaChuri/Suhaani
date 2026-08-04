@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../api/client";
 import CycleRing from "../components/CycleRing";
 import { inputStyle, buttonStyle } from "./Login";
@@ -152,9 +153,29 @@ export default function Screening() {
             diagnosis. Please consult a doctor for confirmation, especially for moderate or
             high results.
           </p>
-          <button onClick={() => { setResult(null); setForm(initialForm); }} style={{ ...buttonStyle, marginTop: 24, background: "transparent", color: "var(--color-primary)", border: "1px solid var(--color-primary)" }}>
-            Take screening again
-          </button>
+
+          {(result.riskLevel === "moderate" || result.riskLevel === "high") && (
+            <Link
+              to="/consultations"
+              style={{
+                display: "inline-block",
+                marginTop: 20,
+                background: "var(--color-primary)",
+                color: "white",
+                padding: "12px 24px",
+                borderRadius: "var(--radius-sm)",
+                fontWeight: 500,
+              }}
+            >
+              Book a doctor consultation →
+            </Link>
+          )}
+
+          <div>
+            <button onClick={() => { setResult(null); setForm(initialForm); }} style={{ ...buttonStyle, marginTop: 16, background: "transparent", color: "var(--color-primary)", border: "1px solid var(--color-primary)" }}>
+              Take screening again
+            </button>
+          </div>
         </div>
       )}
     </div>
