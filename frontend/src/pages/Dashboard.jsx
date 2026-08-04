@@ -47,7 +47,21 @@ export default function Dashboard() {
         </Card>
 
         <Card title="Ask the chatbot">
-          <p style={{ color: "var(--color-text-muted)" }}>Coming in Phase 4 — get answers and recipe suggestions.</p>
+          <p style={{ color: "var(--color-text-muted)", marginBottom: 16 }}>
+            Get answers to PCOS questions, grounded in curated information.
+          </p>
+          <Link to="/chat" style={{ color: "var(--color-primary)", fontWeight: 500 }}>
+            Start chatting →
+          </Link>
+        </Card>
+
+        <Card title="Recipes">
+          <p style={{ color: "var(--color-text-muted)", marginBottom: 16 }}>
+            Filter PCOS-friendly recipes by what you need right now.
+          </p>
+          <Link to="/recipes" style={{ color: "var(--color-primary)", fontWeight: 500 }}>
+            Browse recipes →
+          </Link>
         </Card>
 
         <Card title="Community">

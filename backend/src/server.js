@@ -6,6 +6,8 @@ import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import predictionRoutes from "./routes/predictionRoutes.js";
 import cycleRoutes from "./routes/cycleRoutes.js";
+import chatRoutes from "./routes/chatRoutes.js";
+import recipeRoutes from "./routes/recipeRoutes.js";
 
 dotenv.config();
 
@@ -25,9 +27,10 @@ app.get("/api/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/predictions", predictionRoutes);
 app.use("/api/cycles", cycleRoutes);
+app.use("/api/chatbot", chatRoutes);
+app.use("/api/recipes", recipeRoutes);
 // Future: app.use("/api/community", communityRoutes);
 // Future: app.use("/api/appointments", appointmentRoutes);
-// Future: app.use("/api/chatbot", chatbotRoutes);
 
 const PORT = process.env.PORT || 5000;
 

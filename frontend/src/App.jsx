@@ -8,6 +8,8 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Screening from "./pages/Screening";
 import CycleTracker from "./pages/CycleTracker";
+import Chatbot from "./pages/Chatbot";
+import Recipes from "./pages/Recipes";
 
 export default function App() {
   return (
@@ -39,6 +41,22 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <CycleTracker />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/chat"
+            element={
+              <ProtectedRoute>
+                <Chatbot />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/recipes"
+            element={
+              <ProtectedRoute>
+                <Recipes />
               </ProtectedRoute>
             }
           />
