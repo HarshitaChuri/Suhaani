@@ -22,6 +22,7 @@ export default function Navbar() {
             <Link to="/screening">Screening</Link>
             <Link to="/chat">Chat</Link>
             <Link to="/recipes">Recipes</Link>
+            <Link to="/community">Community</Link>
             <button
               onClick={() => { logout(); navigate("/login"); }}
               style={{

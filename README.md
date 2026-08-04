@@ -79,18 +79,30 @@ npm run dev
 
 Runs at `http://localhost:5173`.
 
-## Current features (Phase 0 + 2 + partial 1)
+## 5. Set up the chatbot (Gemini API — free, no credit card)
+
+1. Go to https://aistudio.google.com/apikey and sign in with any Google account
+2. Click "Create API key" → copy it
+3. Paste it into `backend/.env` as `GEMINI_API_KEY`
+4. Restart the backend — the chatbot and recipe filter both work immediately, no other setup needed
+
+**Note:** as of mid-2026, new keys are "auth keys" (format starts with `AQ.`)
+and use Gemini's Interactions API, not the older `generateContent` endpoint.
+The integration in `backend/src/utils/gemini.js` already accounts for this.
+
+## Current features (Phase 0-5)
 
 - ✅ User registration / login (JWT auth)
 - ✅ Non-invasive PCOS symptom screening (calls ML service, stores result)
+- ✅ Cycle tracking with calendar view and next-period prediction
+- ✅ RAG chatbot grounded in a curated PCOS knowledge base (Gemini API, free tier)
+- ✅ Recipe filter tool (PCOS-friendly recipes tagged by dietary goal)
+- ✅ Community feed: posts, comments, likes, anonymous posting
 - ✅ Dashboard showing latest risk assessment
 - ✅ Design system (see `frontend/src/index.css` for tokens)
 
 ## Roadmap
 
-- [ ] Phase 3 — Cycle tracking (log periods/symptoms, predictions)
-- [ ] Phase 4 — Chatbot (RAG over PCOS knowledge base) + recipe recommendations
-- [ ] Phase 5 — Community (posts, comments)
 - [ ] Phase 6 — Doctor consultation booking (mocked doctor data)
 - [ ] Phase 7 — Deploy to Vercel (frontend) + Render (backend + ML service)
 
@@ -124,3 +136,9 @@ directly against the training data. This matches `CYCLE_REGULAR_CODE` and
 `CYCLE_IRREGULAR_CODE` in `ml-service/main.py`'s `featurize()` section, no
 further changes needed there.
 
+**Note on your full 38-feature model** (the 96.15% XGBoost one, using
+ultrasound + blood test data): that's a separate model, not currently wired
+into this app. It would need its own endpoint and its own form asking for
+values like AMH, FSH/LH, and follicle counts — data a user can't supply
+without already having had those tests done. The 18-feature screening model
+above is the one meant for a home/self-screening flow.

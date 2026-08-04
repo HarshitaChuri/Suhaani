@@ -10,6 +10,7 @@ import Screening from "./pages/Screening";
 import CycleTracker from "./pages/CycleTracker";
 import Chatbot from "./pages/Chatbot";
 import Recipes from "./pages/Recipes";
+import Community from "./pages/Community";
 
 export default function App() {
   return (
@@ -57,6 +58,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Recipes />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/community"
+            element={
+              <ProtectedRoute>
+                <Community />
               </ProtectedRoute>
             }
           />

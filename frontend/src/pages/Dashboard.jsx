@@ -65,7 +65,12 @@ export default function Dashboard() {
         </Card>
 
         <Card title="Community">
-          <p style={{ color: "var(--color-text-muted)" }}>Coming in Phase 5 — connect with others navigating PCOS.</p>
+          <p style={{ color: "var(--color-text-muted)", marginBottom: 16 }}>
+            Share, ask, or vent — post anonymously if you'd rather.
+          </p>
+          <Link to="/community" style={{ color: "var(--color-primary)", fontWeight: 500 }}>
+            Visit community →
+          </Link>
         </Card>
       </div>
     </div>
