@@ -9,7 +9,7 @@ export default function Dashboard() {
   const assessment = user?.latestRiskAssessment;
 
   return (
-    <div className="container" style={{ paddingTop: 56, paddingBottom: 80 }}>
+    <div className="container animate-in" style={{ paddingTop: 56, paddingBottom: 80 }}>
       <h1 style={{ fontSize: 32, marginBottom: 8 }}>Hi, {user?.name?.split(" ")[0]}</h1>
       <p style={{ color: "var(--color-text-muted)", marginBottom: 40 }}>Here's your overview.</p>
 
@@ -62,9 +62,9 @@ export default function Dashboard() {
           </Link>
         </Card>
 
-        <Card title="Ask the chatbot">
+        <Card title="Ask Suhaani">
           <p style={{ color: "var(--color-text-muted)", marginBottom: 16 }}>
-            Get answers to PCOS questions, grounded in curated information.
+            Get answers to PCOS questions — now with voice, in Hindi or Marathi too.
           </p>
           <Link to="/chat" style={{ color: "var(--color-primary)", fontWeight: 500 }}>
             Start chatting →
@@ -96,6 +96,7 @@ export default function Dashboard() {
 function Card({ title, children }) {
   return (
     <div
+      className="hover-lift"
       style={{
         background: "var(--color-surface)",
         borderRadius: "var(--radius)",

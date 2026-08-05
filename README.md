@@ -1,4 +1,4 @@
-# Bloom — PCOS Screening & Care Platform
+# Suhaani — PCOS Screening & Care Platform
 
 A real-time platform built on top of a research project for early PCOS
 detection: a non-invasive symptom screening tool (powered by a trained
@@ -90,20 +90,41 @@ Runs at `http://localhost:5173`.
 and use Gemini's Interactions API, not the older `generateContent` endpoint.
 The integration in `backend/src/utils/gemini.js` already accounts for this.
 
-## Current features (Phase 0-5)
+## Current features (Phase 0-6 + polish)
 
 - ✅ User registration / login (JWT auth)
 - ✅ Non-invasive PCOS symptom screening (calls ML service, stores result)
 - ✅ Cycle tracking with calendar view and next-period prediction
-- ✅ RAG chatbot grounded in a curated PCOS knowledge base (Gemini API, free tier)
+- ✅ RAG chatbot ("Ask Suhaani") grounded in a curated PCOS knowledge base (Gemini API, free tier)
+- ✅ Voice input + per-message "read aloud" in the chatbot (Web Speech API, free, female-voice preference, no backend cost)
+- ✅ Chatbot replies in English, Hindi, or Marathi — a per-conversation language selector, not a full-site translation
 - ✅ Recipe filter tool (PCOS-friendly recipes tagged by dietary goal)
 - ✅ Community feed: posts, comments, likes, anonymous posting
+- ✅ Doctor consultation booking: live availability, real slot-conflict prevention, connected to screening results
 - ✅ Dashboard showing latest risk assessment
-- ✅ Design system (see `frontend/src/index.css` for tokens)
+- ✅ Indigo/teal design system with motion (gradient accents, entrance animations, hover-lift cards)
+
+## Notes on the chatbot's language and voice features
+
+Rather than translating every page site-wide (which added bundle weight for
+uneven payoff), multilingual support is scoped to where it matters most: the
+chatbot. A language selector on the Ask Suhaani page tells Gemini to respond
+in English, Hindi, or Marathi (`backend/src/utils/gemini.js`) — the same
+English-language curated knowledge base is used for all three; Gemini
+translates and phrases the answer naturally itself, so no separate translated
+content was needed.
+
+Voice input uses the browser's built-in `SpeechRecognition` API; each
+assistant message has its own speaker icon (🔊) to read that specific reply
+aloud, matching the pattern used in Claude/ChatGPT, rather than a global
+auto-read toggle. Text-to-speech prefers a female voice where the browser's
+available voice list allows it (`frontend/src/hooks/useSpeech.js`) — this is
+a best-effort name-based match, since the Web Speech API has no reliable
+standardized gender field. Both features are 100% free, browser-native, and
+need zero API keys.
 
 ## Roadmap
 
-- [ ] Phase 6 — Doctor consultation booking (mocked doctor data)
 - [ ] Phase 7 — Deploy to Vercel (frontend) + Render (backend + ML service)
 
 ## Plugging in your real trained model

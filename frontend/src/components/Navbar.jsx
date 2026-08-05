@@ -11,12 +11,23 @@ export default function Navbar() {
         className="container"
         style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}
       >
-        <Link to="/" style={{ fontFamily: "var(--font-display)", fontSize: 22, color: "var(--color-primary)" }}>
-          bloom
+        <Link
+          to="/"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: 22,
+            fontWeight: 700,
+            background: "var(--gradient-primary)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          Suhaani
         </Link>
 
         {user ? (
-          <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/cycles">Cycles</Link>
             <Link to="/screening">Screening</Link>
@@ -43,10 +54,11 @@ export default function Navbar() {
             <Link
               to="/register"
               style={{
-                background: "var(--color-primary)",
+                background: "var(--gradient-primary)",
                 color: "white",
                 padding: "8px 18px",
                 borderRadius: "var(--radius-sm)",
+                fontWeight: 600,
               }}
             >
               Get started

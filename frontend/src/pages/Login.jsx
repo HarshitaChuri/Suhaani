@@ -73,10 +73,10 @@ const buttonStyle = {
   padding: "12px 16px",
   borderRadius: "var(--radius-sm)",
   border: "none",
-  background: "var(--color-primary)",
+  background: "var(--gradient-primary)",
   color: "white",
   fontSize: 15,
-  fontWeight: 500,
+  fontWeight: 600,
 };
 
 export { inputStyle, buttonStyle };

@@ -4,7 +4,7 @@ import { askGemini } from "../utils/gemini.js";
 
 export async function sendMessage(req, res) {
   try {
-    const { message } = req.body;
+    const { message, language } = req.body;
     if (!message || !message.trim()) {
       return res.status(400).json({ message: "Message text is required" });
     }
@@ -20,7 +20,7 @@ export async function sendMessage(req, res) {
     history.reverse();
 
     const contextChunks = retrieveRelevantChunks(message);
-    const reply = await askGemini(message, contextChunks, history);
+    const reply = await askGemini(message, contextChunks, history, language);
 
     const savedReply = await ChatMessage.create({ user: req.userId, role: "assistant", content: reply });
 
