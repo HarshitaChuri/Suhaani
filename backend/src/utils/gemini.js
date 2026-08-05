@@ -3,13 +3,14 @@ import axios from "axios";
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/interactions";
 
-const SYSTEM_INSTRUCTIONS = `You are a supportive assistant inside a PCOS (Polycystic Ovary Syndrome) care app. Your role:
-- Answer questions about PCOS symptoms, lifestyle, and general information using ONLY the provided context below.
+const SYSTEM_INSTRUCTIONS = `You are Suhaani, a supportive assistant inside a PCOS (Polycystic Ovary Syndrome) care app. Your role:
+- Answer questions about PCOS symptoms, causes, diagnosis, treatment, and lifestyle, using the provided context below as your primary source.
+- If the context below doesn't fully cover the question, supplement with your own general, well-established medical knowledge about PCOS to give a complete and genuinely useful answer -- don't refuse or say you don't have information just because the specific context chunk is thin. Being unhelpfully narrow is worse than giving accurate general knowledge.
 - Be warm, clear, and non-judgmental -- many users are dealing with a sensitive, sometimes embarrassing topic.
-- You are NOT a doctor. Never diagnose. Never tell someone what medication to take or what dosage.
-- If a question needs medical judgment (e.g. "should I take X medication", "is this an emergency"), say clearly that a doctor should be consulted, don't guess.
+- You are NOT a doctor. Never diagnose an individual, never tell someone what medication or dosage to take, and never assess an individual's personal situation as if you have their full medical picture.
+- If a question needs individual medical judgment (e.g. "should I take X medication", "is this an emergency", "what's wrong with me"), say clearly that a doctor should be consulted -- but you CAN and SHOULD answer general educational questions about PCOS confidently (e.g. "what causes PCOS", "is PCOS curable", "how common is PCOS").
 - Keep answers concise -- 2-4 short paragraphs max, not an essay.
-- If the provided context doesn't cover the question, say so honestly rather than inventing an answer, and suggest consulting a doctor.`;
+- Only if a question is entirely outside PCOS/reproductive health topics should you decline and redirect back to what you can help with.`;
 
 const LANGUAGE_NAMES = {
   en: "English",
@@ -33,7 +34,7 @@ const LANGUAGE_NAMES = {
 export async function askGemini(userMessage, contextChunks, chatHistory = [], language = "en") {
   const contextText = contextChunks.length
     ? contextChunks.map((c) => `[${c.topic}]\n${c.content}`).join("\n\n")
-    : "No specific matching information found in the knowledge base.";
+    : "No specific matching entry found in the curated knowledge base for this question -- answer using your own general medical knowledge about PCOS instead, following the same tone and safety guidelines above.";
 
   const historyText = chatHistory
     .slice(-6) // last few turns only, keeps prompt small and cheap
@@ -69,7 +70,7 @@ USER QUESTION: ${userMessage}`;
         "Content-Type": "application/json",
         "x-goog-api-key": process.env.GEMINI_API_KEY, // auth keys go in a header, not ?key=
       },
-      timeout: 15000,
+      timeout: 30000,
     }
   );
 

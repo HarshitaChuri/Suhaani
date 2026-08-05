@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import PCOSRibbon from "../components/PCOSRibbon";
 
 const FEATURES = [
   { icon: "🩺", title: "Early screening", desc: "A research-backed model estimates your risk in minutes." },
@@ -16,10 +17,13 @@ export default function Home() {
   return (
     <div>
       <div style={{ background: "var(--gradient-soft)", borderBottom: "1px solid var(--color-border)" }}>
-        <div className="container" style={{ paddingTop: 100, paddingBottom: 90, maxWidth: 760 }}>
-          <p className="animate-in" style={{ fontFamily: "var(--font-mono)", color: "var(--color-secondary)", fontSize: 13, letterSpacing: 1, textTransform: "uppercase", marginBottom: 16, fontWeight: 600 }}>
-            Early screening · cycle tracking · care, together
-          </p>
+        <div className="container" style={{ paddingTop: 80, paddingBottom: 90, maxWidth: 760 }}>
+          <div className="animate-in" style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 24 }}>
+            <PCOSRibbon size={48} />
+            <p style={{ fontFamily: "var(--font-display)", fontStyle: "italic", color: "var(--color-text-muted)", fontSize: 19, fontWeight: 500, margin: 0 }}>
+              You're not figuring this out alone
+            </p>
+          </div>
           <h1
             className="animate-in-delay-1"
             style={{

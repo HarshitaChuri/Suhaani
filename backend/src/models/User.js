@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true, lowercase: true, trim: true },
     password: { type: String, required: true, minlength: 6 },
     age: { type: Number },
+    favoriteRecipes: [{ type: String }], // recipe IDs from the static recipe dataset
     // Denormalized latest prediction so we don't need a join for dashboard display
     latestRiskAssessment: {
       riskLevel: { type: String, enum: ["low", "moderate", "high", null], default: null },

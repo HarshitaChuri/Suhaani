@@ -11,6 +11,12 @@ const recipes = [
     prepTime: "5 min",
     ingredients: ["Greek yogurt", "Mixed berries", "Chia seeds", "A drizzle of honey", "Almonds"],
     whyItHelps: "High protein and fiber keep blood sugar stable through the morning, and berries add anti-inflammatory antioxidants without a big sugar spike.",
+    steps: [
+      "Spoon Greek yogurt into a bowl.",
+      "Top with a handful of mixed berries.",
+      "Sprinkle chia seeds and chopped almonds over the top.",
+      "Drizzle lightly with honey and serve immediately.",
+    ],
   },
   {
     id: "r002",
@@ -19,6 +25,13 @@ const recipes = [
     prepTime: "25 min",
     ingredients: ["Chickpeas", "Quinoa", "Roasted sweet potato", "Spinach", "Tahini dressing"],
     whyItHelps: "Chickpeas and quinoa are both high in fiber and protein, which slows digestion and helps avoid post-meal blood sugar spikes.",
+    steps: [
+      "Rinse quinoa and cook according to package instructions.",
+      "Toss cubed sweet potato in olive oil and roast at 200°C for 20 minutes.",
+      "Drain and rinse chickpeas; pan-sauté with a pinch of cumin for 5 minutes.",
+      "Assemble the bowl: quinoa base, roasted sweet potato, chickpeas, and raw spinach.",
+      "Drizzle with tahini dressing before serving.",
+    ],
   },
   {
     id: "r003",
@@ -27,6 +40,13 @@ const recipes = [
     prepTime: "20 min",
     ingredients: ["Salmon fillet", "Olive oil", "Garlic", "Sautéed spinach or kale", "Lemon"],
     whyItHelps: "Salmon is rich in omega-3 fatty acids, which have anti-inflammatory effects -- helpful given PCOS is linked to chronic low-grade inflammation.",
+    steps: [
+      "Preheat oven to 200°C.",
+      "Rub salmon with olive oil, minced garlic, salt, and pepper.",
+      "Bake for 12-15 minutes until just cooked through.",
+      "While the salmon bakes, sauté spinach or kale in a pan with a little olive oil.",
+      "Serve the salmon over the greens with a squeeze of lemon.",
+    ],
   },
   {
     id: "r004",
@@ -35,6 +55,11 @@ const recipes = [
     prepTime: "5 min (+ overnight)",
     ingredients: ["Rolled oats", "Milk of choice", "Cinnamon", "Chia seeds", "Sliced banana"],
     whyItHelps: "Cinnamon has been studied for a modest insulin-sensitizing effect, and oats' soluble fiber helps slow sugar absorption.",
+    steps: [
+      "Combine oats, milk, cinnamon, and chia seeds in a jar.",
+      "Stir well and refrigerate overnight (at least 4 hours).",
+      "In the morning, top with sliced banana before eating.",
+    ],
   },
   {
     id: "r005",
@@ -43,6 +68,13 @@ const recipes = [
     prepTime: "30 min",
     ingredients: ["Red lentils", "Spinach", "Onion", "Garlic", "Cumin", "Vegetable broth"],
     whyItHelps: "Lentils are a strong plant-based protein and fiber source, supporting stable blood sugar and gut health.",
+    steps: [
+      "Sauté chopped onion and garlic in a pot until soft.",
+      "Add cumin and toast for 30 seconds.",
+      "Add red lentils and vegetable broth; bring to a boil.",
+      "Simmer for 15-20 minutes until lentils are soft.",
+      "Stir in spinach for the last 2 minutes until wilted. Season and serve.",
+    ],
   },
   {
     id: "r006",
@@ -51,6 +83,13 @@ const recipes = [
     prepTime: "20 min",
     ingredients: ["Grilled chicken breast", "Avocado", "Mixed greens", "Cherry tomatoes", "Olive oil & lemon dressing"],
     whyItHelps: "A high-protein, low-carb combination that's satiating without spiking blood sugar -- good for a midday meal that won't cause an afternoon energy crash.",
+    steps: [
+      "Season chicken breast with salt, pepper, and a little olive oil.",
+      "Grill or pan-sear for 6-7 minutes per side until cooked through.",
+      "Slice the chicken and set aside.",
+      "Toss mixed greens, halved cherry tomatoes, and sliced avocado in a bowl.",
+      "Top with the sliced chicken and dress with olive oil and lemon juice.",
+    ],
   },
   {
     id: "r007",
@@ -59,6 +98,12 @@ const recipes = [
     prepTime: "5 min",
     ingredients: ["Milk of choice", "Turmeric", "Black pepper (boosts absorption)", "Cinnamon", "Honey"],
     whyItHelps: "Turmeric's active compound (curcumin) has anti-inflammatory properties studied in PCOS-adjacent contexts, though effects are modest and this isn't a treatment on its own.",
+    steps: [
+      "Warm milk gently in a small saucepan -- don't let it boil.",
+      "Whisk in turmeric, a pinch of black pepper, and cinnamon.",
+      "Simmer for 2-3 minutes, whisking occasionally.",
+      "Remove from heat, stir in honey to taste, and serve warm.",
+    ],
   },
   {
     id: "r008",
@@ -67,6 +112,13 @@ const recipes = [
     prepTime: "10 min",
     ingredients: ["Eggs", "Bell peppers", "Spinach", "Onion", "Olive oil"],
     whyItHelps: "A near-zero-carb, protein-rich breakfast that keeps morning blood sugar and insulin response flat.",
+    steps: [
+      "Heat olive oil in a pan over medium heat.",
+      "Sauté diced onion and bell pepper for 3-4 minutes until softened.",
+      "Add spinach and cook until just wilted.",
+      "Whisk eggs and pour into the pan.",
+      "Scramble gently until just set, and serve immediately.",
+    ],
   },
 ];
 
