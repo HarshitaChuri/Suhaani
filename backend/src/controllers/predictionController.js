@@ -15,7 +15,7 @@ export async function runScreening(req, res) {
     const mlResponse = await axios.post(
       `${process.env.ML_SERVICE_URL}/predict/screening`,
       inputFeatures,
-      { timeout: 10000 }
+      { timeout: 60000 }
     );
 
     const { risk_level, probability, model_used } = mlResponse.data;
