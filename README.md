@@ -123,9 +123,6 @@ assistant message has its own speaker icon (🔊) to read that specific reply
 aloud, matching the pattern used in Claude/ChatGPT. Both voice features are
 100% free, browser-native, and need zero API keys.
 
-## Roadmap
-
-- [ ] Phase 7 — Deploy to Vercel (frontend) + Render (backend + ML service)
 
 ## Plugging in your real trained model
 
