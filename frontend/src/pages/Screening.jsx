@@ -135,6 +135,11 @@ export default function Screening() {
           <button type="submit" disabled={submitting} style={{ ...buttonStyle, marginTop: 4 }}>
             {submitting ? "Analyzing..." : "Get my results"}
           </button>
+          {submitting && (
+            <p style={{ fontSize: 12, color: "var(--color-text-muted)", textAlign: "center", marginTop: 8 }}>
+              This may take up to a minute on first use today — the screening model is waking up.
+            </p>
+          )}
         </form>
       ) : (
         <div
